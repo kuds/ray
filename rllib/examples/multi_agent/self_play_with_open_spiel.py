@@ -184,6 +184,7 @@ if __name__ == "__main__":
     # Restore trained Algorithm (set to non-explore behavior) and play against
     # human on command line.
     if args.num_episodes_human_play > 0:
+        register_env("open_spiel_env", lambda _: OpenSpielEnv(pyspiel.load_game(args.env)))
         num_episodes = 0
         config.explore = False
         algo = config.build()
